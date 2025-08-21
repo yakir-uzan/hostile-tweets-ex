@@ -1,6 +1,6 @@
 import os
 from pymongo import MongoClient
-
+import pandas as pd
 
 class MongoFetcher:
     def __init__(self):
@@ -17,3 +17,7 @@ class MongoFetcher:
     #שליפת כל הנתונים מהקולקשיין
     def fetch_all(self):
         return list(self.collection.find())
+
+    # שליפת הנתונים לתוך דאטה פריים
+    def fetch_to_df(self):
+        return pd.DataFrame(self.fetch_all())
