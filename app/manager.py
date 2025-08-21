@@ -1,16 +1,17 @@
-from fetcher import MongoFetcher
-from processor import TextProcessor
+from app.fetcher import MongoFetcher
+from app.processor import TextProcessor
 
 class Manager:
     def __init__(self):
         # מופע למחלקה שיוצרת חיבור עם המונגו
-        self.fetcher = MongoFetcher
+        self.fetcher = MongoFetcher()
 
     # פונקציהה שמבצעת את עיבוד הטקסט וכו, מחזירה גייסון
     def get_process(self):
         df = self.fetcher.fetch_to_df()
         processor = TextProcessor(df)
         processed_df = processor.process()
+
 
         # יצירת רשימה של מילונים של ציוצים מעובדים
         result = []

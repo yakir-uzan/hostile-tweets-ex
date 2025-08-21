@@ -1,6 +1,7 @@
 import pandas as pd
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import re
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 
 class TextProcessor:
     def __init__(self, df, weapons_path = "data/weapons.txt"):

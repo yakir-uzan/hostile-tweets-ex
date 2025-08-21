@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from fetcher import MongoFetcher
-from manager import Manager
+from app.fetcher import MongoFetcher
+from app.manager import Manager
 
 #יצירת מוםע של פאסט API, ומופע של החיבור למונגו
 app = FastAPI()
@@ -23,3 +23,8 @@ def get_all_tweets():
 @app.get("/processed_tweets")
 def get_processed():
     return manager.get_process()
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=9000)
